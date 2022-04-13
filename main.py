@@ -40,5 +40,6 @@ if __name__ == '__main__':
 
     ventana_creacion_party.senal_nuevo_personaje.connect(ventana_creacion_personaje.abrir_ventana)
     ventana_creacion_personaje.senal_personaje.connect(logica_creacion_personaje.comprobar_personaje)
+    logica_creacion_personaje.senal_respuesta_personaje.connect(ventana_creacion_personaje.recibir_personaje)
 
     sys.exit(app.exec())

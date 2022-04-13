@@ -451,7 +451,7 @@
       <number>5</number>
      </property>
      <property name="bottomMargin">
-      <number>5</number>
+      <number>0</number>
      </property>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -988,7 +988,7 @@
      <x>0</x>
      <y>0</y>
      <width>938</width>
-     <height>27</height>
+     <height>31</height>
     </rect>
    </property>
   </widget>
