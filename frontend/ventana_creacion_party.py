@@ -11,34 +11,24 @@ from PyQt5.QtCore import pyqtSignal, Qt, QLine
 path = os.path.join("frontend", "assets",  "ventana_creacion_party.ui")
 window_name, base_class = uic.loadUiType(path)
 
-class VentanaCreacion(window_name, base_class):
-      
+class VentanaCreacionParty(window_name, base_class):
 
-      senal_nombre_party = pyqtSignal(str)
-      senal_nueva_party = pyqtSignal(str)
+        senal_anadir_personaje = pyqtSignal(str)
+        senal_nuevo_personaje = pyqtSignal()
+        
+        def __init__(self):
+            super().__init__()
+            self.setupUi(self)
+            self.pushButton1.clicked.connect(self.anadir_personaje)
 
-      def __init__(self):
-         super().__init__()
-         self.setupUi(self)
+        def abrir_ventana(self, nombre):
+            self.show()
+            self.label_nombre.setText(nombre)
 
-         self.lineEdit.setPlaceholderText("Nombre Party")
-         self.pushButton_2.clicked.connect(self.enviar_nombre_party)
+        def anadir_personaje(self):
+            if self.comboBox.currentText() == "Create character":
+                self.senal_nuevo_personaje.emit()
+            else:
+                pass
 
-      def enviar_nombre_party(self):
-        self.senal_nombre_party.emit(self.lineEdit.text())
-
-      def recibir_validacion(self, validado):
-        """
-        Este método recibe desde el back-end una señal que indica si el nombre enviado es
-        valido o no. De ser valido, se sigue a la siguiente ventana. En el caso contrario, se borra
-        el texto del QLine y se notifica que el nombre es invalido
-        """
-        if validado:
-            self.hide()
-            self.senal_nueva_party.emit(self.lineEdit.text())
-        else:
-            self.lineEdit.clear()
-            self.lineEdit.setPlaceholderText("Nombre inválido")
-
-      def abrir_ventana(self):
-        self.show()
+    
