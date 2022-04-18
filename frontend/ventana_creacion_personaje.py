@@ -44,9 +44,6 @@ class VentanaCreacionPersonaje(window_name, base_class):
             }
             self.senal_personaje.emit(personaje)
 
-        def anadir_personaje(self):
-            pass
-
         def recibir_personaje(self, str):
             if str == "NAME FAIL":
                 self.lineEdit_1.setText("")

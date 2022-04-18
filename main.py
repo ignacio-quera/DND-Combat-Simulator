@@ -30,16 +30,17 @@ if __name__ == '__main__':
     ventana_creacion_personaje = VentanaCreacionPersonaje()
     logica_creacion_personaje = LogicaCreacionPersonaje()
 
-    
-    ventana_inicio.abrir_ventana()
-
     ventana_inicio.senal_nombre_party.connect(logica_inicio.comprobar_nombre_nuevo)
     logica_inicio.senal_respuesta_validacion.connect(ventana_inicio.recibir_validacion)
 
     ventana_inicio.senal_nueva_party.connect(ventana_creacion_party.abrir_ventana)
 
+    logica_creacion_party.senal_lista_personajes.connect(ventana_creacion_party.actualizar)
     ventana_creacion_party.senal_nuevo_personaje.connect(ventana_creacion_personaje.abrir_ventana)
     ventana_creacion_personaje.senal_personaje.connect(logica_creacion_personaje.comprobar_personaje)
     logica_creacion_personaje.senal_respuesta_personaje.connect(ventana_creacion_personaje.recibir_personaje)
+
+    ventana_inicio.abrir_ventana()
+    logica_creacion_party.personajes_combo()
 
     sys.exit(app.exec())

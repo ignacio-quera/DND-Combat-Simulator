@@ -26,6 +26,7 @@ class LogicaCreacionParty(QObject):
         super().__init__()
 
     senal_respuesta_validacion = pyqtSignal(bool)
+    senal_lista_personajes = pyqtSignal(list)
 
     def comprobar_nombre_nuevo(self, nombre):
         if nombre.isalnum():
@@ -33,6 +34,25 @@ class LogicaCreacionParty(QObject):
         else:
             self.senal_respuesta_validacion.emit(False)
 
+    def personajes_combo(self):
+        lista_combo = []
+        with open('backend\personajes.txt', 'r') as p:
+            a = p.readlines()
+        for personaje in a:
+            if personaje:
+                personaje = personaje.strip('\n')
+                personaje_lista = personaje.split(',')
+                nombre = personaje_lista[0]
+                clase = personaje_lista[1]
+                nivel = personaje_lista[3]
+                texto_personaje = nombre[0].upper()+nombre[1:]+' '+clase[0].upper()+clase[1:]
+                if personaje_lista[2]:
+                    subclase = personaje_lista[2]
+                    texto_personaje += f"\\{subclase[0].upper()}{subclase[1:]}"
+                texto_personaje += nivel
+                lista_combo.append(texto_personaje)
+        self.senal_lista_personajes.emit(lista_combo)
+    
     def crear_party(self):
         pass
 
@@ -45,7 +65,8 @@ class LogicaCreacionPersonaje(QObject):
     senal_respuesta_personaje = pyqtSignal(str)
 
     def comprobar_personaje(self, personaje):
-
+        
+        self.error = False
         #NAME CHECK
         if personaje["nombre"].isalnum():
             pass
@@ -175,6 +196,28 @@ class LogicaCreacionPersonaje(QObject):
             self.senal_respuesta_personaje.emit("CHA FAIL")
             self.error = True
 
-
+        if self.error == False:
+            nombre = personaje["nombre"]
+            clase = personaje["class"]
+            subclass = personaje["subclass"]
+            level = personaje["level"]
+            hp = personaje["hp"]
+            ac = personaje["ac"]
+            speed = personaje["speed"]
+            str = personaje["str"]
+            dex = personaje["dex"]
+            con = personaje["con"]
+            inte = personaje["int"]
+            wis = personaje["wis"]
+            cha = personaje["cha"]
+            personaje = f"{nombre},{clase},{subclass},{level},{hp},{ac},{speed},{str},{dex},"
+            personaje += f"{con},{inte},{wis},{cha}"
+            with open("backend\personajes.txt", 'r') as p:
+                lista_p = p.readlines()
+            with open("backend\personajes.txt", 'a+') as p:
+                if personaje+"\n" not in lista_p:
+                    p.write(personaje)
+                    p.write("\n")
+            
     def crear_party(self):
         pass

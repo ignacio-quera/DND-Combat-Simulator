@@ -19,16 +19,27 @@ class VentanaCreacionParty(window_name, base_class):
         def __init__(self):
             super().__init__()
             self.setupUi(self)
+            self.nueva_columna = False
+            self.n_personaje = 1
             self.pushButton1.clicked.connect(self.anadir_personaje)
 
         def abrir_ventana(self, nombre):
-            self.show()
             self.label_nombre.setText(nombre)
+            self.show()
 
         def anadir_personaje(self):
-            if self.comboBox.currentText() == "Create character":
+            if self.comboBoxP.currentText() == "Create character":
                 self.senal_nuevo_personaje.emit()
             else:
+                label_personaje = QLabel()
                 pass
+
+        def actualizar(self, listacombo):
+            for personaje in listacombo:
+                self.comboBoxP.addItem(personaje)
+
+        def listar_nuevo_personaje(self, personaje):
+            pass
+
 
     

@@ -2,13 +2,22 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>932</width>
-    <height>704</height>
+    <width>991</width>
+    <height>713</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="palette">
    <palette>
@@ -429,16 +438,28 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1677777</width>
+     <height>16777215</height>
+    </size>
+   </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>910</width>
-      <height>621</height>
+      <width>971</width>
+      <height>631</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,5">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,5">
      <property name="leftMargin">
       <number>0</number>
      </property>
@@ -446,30 +467,32 @@
       <number>0</number>
      </property>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QLabel" name="label_nombre">
-           <property name="font">
-            <font>
-             <family>High Tower Text</family>
-             <pointsize>36</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Encontristas</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="label_nombre">
+         <property name="font">
+          <font>
+           <family>High Tower Text</family>
+           <pointsize>36</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Encontristas</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -479,31 +502,31 @@
         <number>10</number>
        </property>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <property name="bottomMargin">
-          <number>10</number>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
          </property>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
            <property name="leftMargin">
+            <number>20</number>
+           </property>
+           <property name="topMargin">
             <number>20</number>
            </property>
            <property name="rightMargin">
             <number>20</number>
            </property>
+           <property name="bottomMargin">
+            <number>20</number>
+           </property>
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_6">
-             <property name="leftMargin">
-              <number>20</number>
-             </property>
-             <property name="topMargin">
-              <number>20</number>
-             </property>
-             <property name="rightMargin">
-              <number>20</number>
-             </property>
-             <property name="bottomMargin">
-              <number>20</number>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <property name="spacing">
+              <number>30</number>
              </property>
              <item>
               <widget class="QLabel" name="label">
@@ -519,31 +542,6 @@
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox">
-               <item>
-                <property name="text">
-                 <string>Create character</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0">
-             <property name="leftMargin">
-              <number>20</number>
-             </property>
-             <property name="topMargin">
-              <number>20</number>
-             </property>
-             <property name="rightMargin">
-              <number>20</number>
-             </property>
-             <property name="bottomMargin">
-              <number>20</number>
-             </property>
-             <item>
               <widget class="QLabel" name="label_2">
                <property name="font">
                 <font>
@@ -554,6 +552,22 @@
                <property name="text">
                 <string>Add/Create Character</string>
                </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <property name="spacing">
+              <number>30</number>
+             </property>
+             <item>
+              <widget class="QComboBox" name="comboBoxP">
+               <item>
+                <property name="text">
+                 <string>Create character</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item>
@@ -570,10 +584,88 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout"/>
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,4">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="font">
+            <font>
+             <family>High Tower Text</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Party members:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutPersonaje">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="leftMargin">
+          <number>250</number>
+         </property>
+         <property name="rightMargin">
+          <number>250</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>PushButton</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -585,7 +677,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>932</width>
+     <width>991</width>
      <height>31</height>
     </rect>
    </property>
